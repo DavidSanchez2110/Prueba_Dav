@@ -1,0 +1,138 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido</h1>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Cliente
+    </div>
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-sm-4">
+            <label class="form-label">Nombre</label>
+            <input class="form-control form-control-sm" type="text" id="txtNombre" />
+        </div>
+        <div class="col-sm-4">
+            <label class="form-label">Cedula</label>
+            <input class="form-control form-control-sm" type="text" id="txtCedula" />
+        </div>
+        <div class="col-sm-4">
+            <label class="form-label">Direccion</label>
+            <input class="form-control form-control-sm" type="text" id="txtDireccion" />
+         </div>
+        <div class="col-sm-4">
+            <label class="form-label">Correo</label>
+            <input class="form-control form-control-sm" type="text" id="txtCorreo" />
+        </div>
+         <div class="col-sm-4">
+                <label class="form-label">Telefono</label>
+                <input class="form-control form-control-sm" type="text" id="txtTelefono" />
+            </div>
+            </div>
+            <hr/>
+            <div class="card">
+    <div class="card-header">
+        Unidades Registradas 
+    </div>
+    <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <label class="form-label">Codigo Caja</label>
+                    <input class="form-control form-control-sm" type="number" id="txtCodigo" />
+                </div>
+                <div class="col-sm-3">
+                    <label class="form-label">Codigo Unidad</label>
+                    <input class="form-control form-control-sm" type="number" id="txtCodigo" />
+                </div>
+                <div class="col-sm-3">
+                    <button class="btn btnbtn-success btn-sm" id="btnAgregar">Agregar</button>
+                <button class="btn btnbtn-primary btn-sm" id="btnGuardar">Guardar</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table table-bordered table-sm" id="tbCodigoCaja">
+                        <thead>
+                            <tr class="table-dark">
+                                <th>Nombre</th>
+                                <th>Cedula</th>
+                                <th>Direccion</th>
+                                <th>Correo</th>
+                                <th>Telefono</th>
+                                <th>Codigo Caja</th>
+                                <th>Codigo Unidad</th>
+                            </tr>
+
+
+                        </thead>
+                        <tbody>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+@section Scripts{
+
+    <script>
+
+        $("#btnAgregar").on("click",function(){
+
+            $("#tbCodigoCaja tbody").append(
+
+                $("<tr>").append(
+                    $("<td>").text($("#tbCodigoCaja").val()),
+                    $("<td>").text($("#tbNombre").val()),
+                    $("<td>").text($("#tbCedula").val()),
+                    $("<td>").text($("#tbDireccion").val()),
+                    $("<td>").text($("#tbCorreo").val()),
+                    $("<td>").text($("#tbTelefono").val()),
+                    $("<td>").text($("#tbCodigoUnidad").val()),
+
+
+                )
+
+
+            )
+                    $("#tbNombre").val(""),
+                    $("#tbCedula").val(""),
+                    $("#tbDireccion").val(""),
+                    $("#tbCorreo").val(""),
+                    $("#tbTelefono").val(""),
+                    $("#tbCodigoUnidad").val(""),
+                    $("#tbCodigoCaja").focus(),
+        })
+
+
+        $("#btnGuardar").on("click",function(){
+
+            var oUsuarioCL = {
+                oCliente = {
+                    Nombre: $("#txtNombre").val(),
+                    Cedula: $("#txtCedula").val(),
+                    Direccion: $("#txtDireccion").val(),
+                    Correo: $("#txtCorreo").val(),
+                    Telefono: $("#txtTelefono").val()
+                }
+                oUnidadesRegistrada : oCliente
+            }
+
+
+
+
+
+    </script>
+}
